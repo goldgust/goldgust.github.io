@@ -9,20 +9,26 @@
         var fin = input.value.toString()
 
         var imgs = document.getElementById('nameform').elements;
+        
+        if(document.getElementById('lineadd').checked){
+            fin = fin.replace(/\n/g, "\n\n");
+        }
 
         for (var i = 0; i < imgs.length; i++) {
             var name = new RegExp(imgs[i].id + " ", "g");
             var img = "|-\n|[[File:" + imgs[i].value + "|center|link=|x200px]]\n|\n"
             fin = fin.replace(name, img);
         }
-
-        var header = "{| class=\"article-table\" cellspacing=\"1/6\" cellpadding=\"2\" border=\"1\" align=\"center\" width=\"100%\"\n! colspan=\"2\" style=\"text-align:center;background-color:#B284D4; color:#ffffff;\" |'''Writer:" +
+        
+        var bgcolour = document.getElementById('bcolor').value
+        
+        var header = "{| class=\"article-table\" cellspacing=\"1/6\" cellpadding=\"2\" border=\"1\" align=\"center\" width=\"100%\"\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Writer:" +
             document.getElementById('writer').value + "'''\n|-\n| colspan=\"2\" |[[File:" +
-            document.getElementById('chtitle').value + ".png|660px|link=|center]]\n|-\n! colspan=\"2\" style=\"text-align:center;background-color:#B284D4; color:#ffffff;\" |'''Location: ''' " +
+            document.getElementById('chtitle').value + ".png|660px|link=|center]]\n|-\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Location:''' " +
             document.getElementById('location').value + "\n"
 
-        var footer = "\n|-\n| colspan=\"2\" |<references/>\n|-\n! colspan=\"2\" style=\"text-align:center;background-color:#B284D4; color:#ffffff;\" |'''Translation:''' [" +
-            document.getElementById('tllink').value +
+        var footer = "\n|-\n| colspan=\"2\" |<references/>\n|-\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Translation:''' [" +
+            document.getElementById('tllink').value + " " +
             document.getElementById('tler').value +
             "]\n|}"
 
@@ -106,11 +112,18 @@ Paste your text here
   <div class="column"> 
   <form id="smallform" action="">
         Writer:
-        <input type="text" id="writer" value="日日日 (Akira) 結城由乃 (Yuuki Yoshino)"><br> Chapter Title:
-        <input type="text" id="chtitle" value=""><br> Location:
-        <input type="text" id="location" value=""><br> Translator:
-        <input type="text" id="tler" value=""><br> Link to TLer:
-        <input type="text" id="tllink" value=""><br>
+        <input type="text" id="writer" value="日日日 (Akira) 結城由乃 (Yuuki Yoshino)"><br> 
+        Chapter Title:
+        <input type="text" id="chtitle" value=""><br> 
+        Location:
+        <input type="text" id="location" value=""><br> 
+        Translator:
+        <input type="text" id="tler" value=""><br> 
+        Link to TLer:
+        <input type="text" id="tllink" value=""><br> 
+        Border colour:
+        <input type="text" id="bcolor" value="#B284D4"><br>
+        <input type="radio" id="lineadd" value="">Add Blank Lines<br>
         <p>
     </form>
             <input id="Auto" type="button" value="Give Names" onclick="autoFielder()" /><p>
