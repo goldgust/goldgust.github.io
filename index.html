@@ -59,6 +59,12 @@
         var uniqnames = Array.from(new Set(names))
         return uniqnames
     }
+    
+    function copyBox() {
+      var copyText = document.getElementById("outputfield");
+      copyText.select();
+      document.execCommand("copy");
+    }
 </script>
 
 <head>
@@ -83,14 +89,15 @@
     </h1>
     please send feedback to @star_goldfish on twitter :)
     <p>
-        ******use msword for italics first please******
+        ******use msword for italics first please******<br>
+        also don't forget footnotes and CGs and all that stuff
 </head>
 
 <body>
     <div class="row">
   <div class="column">
           <form id="bigform" action="">
-        <textarea id="input" rows="20" cols="50">
+        <textarea id="input" rows="20" cols="80">
 Paste your text here
         </textarea>
         <p>
@@ -103,7 +110,7 @@ Paste your text here
         <input type="text" id="chtitle" value=""><br> Location:
         <input type="text" id="location" value=""><br> Translator:
         <input type="text" id="tler" value=""><br> Link to TLer:
-        <input type="text" id="tllink" value=""><br><br>
+        <input type="text" id="tllink" value=""><br>
         <p>
     </form>
             <input id="Auto" type="button" value="Give Names" onclick="autoFielder()" /><p>
@@ -111,16 +118,13 @@ Paste your text here
             <form id="nameform" action=""></form>
             </div>
 
-
-
-    <p>
-        
-        
     </div>
     
     <input id="Replace" type="button" value="Click to get page code" onclick="Write()" />
+    <button onclick="copyBox()">Copy to clipboard</button>
             <p>
-            <p id="outputfield" style="white-space: pre-wrap;"></p>
+            <textarea rows="20" cols="80" id="outputfield" style="white-space: pre-wrap;">
+            </textarea>
 </body>
 
 </html>
