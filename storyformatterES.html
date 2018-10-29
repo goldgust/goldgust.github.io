@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<script type="text/javascript">
+    function Write() {
+        var input = document.getElementById('input');
+        var output = document.getElementById('outputfield');
+        var fin = input.value.toString()
+        var imgs = document.getElementById('nameform').elements;
+        
+        if(document.getElementById('lineadd').checked){
+            fin = fin.replace(/\n/g, "\n\n");
+        }
+        for (var i = 0; i < imgs.length; i++) {
+            var name = new RegExp(imgs[i].id + " ", "g");
+            var img = "|-\n|[[File:" + imgs[i].value + "|center|link=|x200px]]\n|\n"
+            fin = fin.replace(name, img);
+        }
+        
+        var bgcolour = document.getElementById('bcolor').value
+        
+        var header = "{| class=\"article-table\" cellspacing=\"1/6\" cellpadding=\"2\" border=\"1\" align=\"center\" width=\"100%\"\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Writer:" +
+            document.getElementById('writer').value + "'''\n|-\n| colspan=\"2\" |[[File:" +
+            document.getElementById('chtitle').value + ".png|660px|link=|center]]\n|-\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Location:''' " +
+            document.getElementById('location').value + "\n"
+        var footer = "\n|-\n| colspan=\"2\" |<references/>\n|-\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Translation:''' [" +
+            document.getElementById('tllink').value + " " +
+            document.getElementById('tler').value +
+            "]\n|}"
+        fin = header + fin + footer
+        output.innerHTML = fin;
+    }
+    function autoFielder() {
+        var y = document.getElementById('input').value;
+        var names = getNames(y)
+        for (var i = 0; i < names.length; i++) {
+            addField(names[i])
+        }
+    }
+    function addField(id) {
+        var form = document.getElementById('nameform');
+        //quit if field already exists    
+        if (!document.getElementById(id)) {
+            //create input element
+            var i = document.createElement("input");
+            i.type = "text";
+            i.id = id;
+            form.innerHTML += "<p>"
+            form.innerHTML += id
+            form.appendChild(i);
+        }
+    }
+    function getNames(text) {
+        var textpadded = "\n" + text
+        var names = textpadded.match(/(?<=[\n\r])[A-Z][a-z]+:/g)
+        var uniqnames = Array.from(new Set(names))
+        return uniqnames
+    }
+    
+    function copyBox() {
+      var copyText = document.getElementById("outputfield");
+      copyText.select();
+      document.execCommand("copy");
+    }
+</script>
+
+<head>
+    
+    <style>
+    body {background-color: #eeccbb;}
+    .column {
+    float: left;
+    width: 50%;
+    }
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    </style>
+    
+    <h1>
+        <a href="index.html"> the Amazing enstars wiki formatter </a>
+    </h1>
+    please send feedback to @star_goldfish on twitter :)
+    <p>
+        ******Use MS Word for italics first please****** Press Ctrl+I then Search: (<*>) Replace: ''\1'' <br>
+        This will not get you a finished wiki page! Please don't forget to add footnotes, CGs, location changes and so on.<br>
+        <a href="https://ensemble-stars.wikia.com/wiki/MS_Word_Story_Formatting_Guide">Most code for those can be found here</a>
+</head>
+
+<body>
+    <div class="row">
+  <div class="column">
+          <form id="bigform" action="">
+        <textarea id="input" rows="20" cols="80">
+Paste your text here
+        </textarea>
+        <p>
+    </form>
+  </div>
+  <div class="column"> 
+  <form id="smallform" action="">
+        Writer:
+        <input type="text" id="writer" value="日日日 (Akira) 結城由乃 (Yuuki Yoshino)"><br> 
+        Chapter Title:
+        <input type="text" id="chtitle" value=""><br> 
+        Location:
+        <input type="text" id="location" value=""><br> 
+        Translator:
+        <input type="text" id="tler" value=""><br> 
+        Link to TLer:
+        <input type="text" id="tllink" value=""><br> 
+        Border colour:
+        <input type="text" id="bcolor" value="#B284D4"><br>
+        <input type="checkbox" id="lineadd" value="">Add Blank Lines<br>
+        <p>
+    </form>
+            <input id="Auto" type="button" value="Give Names" onclick="autoFielder()" /><p>
+            Put the matching images you want here e.g. Wataru Hibiki School Dialogue Render.png
+            <form id="nameform" action=""></form>
+            </div>
+
+    </div>
+    
+    <input id="Replace" type="button" value="Click to get page code" onclick="Write()" />
+    <button onclick="copyBox()">Copy to clipboard</button>
+            <p>
+            <textarea rows="20" cols="80" id="outputfield" style="white-space: pre-wrap;">
+            </textarea>
+</body>
+
+</html>
