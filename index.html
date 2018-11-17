@@ -25,12 +25,23 @@
         var header = "{| class=\"article-table\" cellspacing=\"1/6\" cellpadding=\"2\" border=\"1\" align=\"center\" width=\"100%\"\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Writer:" +
             document.getElementById('writer').value + "'''\n|-\n| colspan=\"2\" |[[File:" +
             document.getElementById('chtitle').value + ".png|660px|link=|center]]\n|-\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Location:''' " +
-            document.getElementById('location').value + "\n"
+            document.getElementById('location').value + "\n|<center>This chapter has multiple translations! Click one of the \"Expand\" buttons below to open your version of choice.</center>\n|}\n\n{| class=\"mw-collapsible mw-collapsed article-table\" align=\"center\" style=\"width:100%;\"\n! colspan=\"2\" style=\"background:#B663C9; color:#fff; font-size:14px; padding:3px 10px;\"|Translation by [https://twitter.com/seiginoakashi nanairo]\n|-\n|\n{| class=\"article-table\" cellspacing=\"1/6\" cellpadding=\"2\" border=\"1\" align=\"center\" width=\"100%\"\n|-\"
 
         var footer = "\n|-\n| colspan=\"2\" |<references/>\n|-\n! colspan=\"2\" style=\"text-align:center;background-color:" + bgcolour + "; color:#ffffff;\" |'''Translation:''' [" +
             document.getElementById('tllink').value + " " +
             document.getElementById('tler').value +
-            "]\n|}"
+            "]\n|}
+        \n|}
+\n<!------------------------------------------------------------------------------------------------------------>
+\n<!------------------------------------------^^^ @seiginoakashi&@_ryugazakis TL ^^^------------------------------------------------>
+\n<!------------------------------------------------------------------------------------------------------------>
+\n<!----------------------------------------vvv NovaCharmQuark's TL vvv--------------------------------------------->
+\n<!------------------------------------------------------------------------------------------------------------>
+\n{| class=\"mw-collapsible mw-collapsed article-table\" align=\"center\" style=\"width:100%;\"
+\n! colspan=\"2\" style=\"background:#AED6F1; color:#fff; font-size:14px; padding:3px 10px;\"|Translation by [[User:NovaCharmQuark]]
+\n|-
+\n|
+\n{| class=\"article-table\" cellspacing=\"1/6\" cellpadding=\"2\" border=\"1\" align=\"center\" width=\"100%\""
 
         fin = header + fin + footer
         output.innerHTML = fin;
