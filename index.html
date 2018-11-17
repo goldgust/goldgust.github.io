@@ -61,7 +61,7 @@
 
     function getNames(text) {
         var textpadded = "\n" + text
-        var names = textpadded.match(/(?<=[\n\r])[A-Z][a-z]+:/g)
+        var names = textpadded.match(/(?<=[\n\r])[A-Z]+:/g)
         var uniqnames = Array.from(new Set(names))
         return uniqnames
     }
@@ -94,6 +94,7 @@
         <a href="index.html"> the Amazing enstars wiki formatter </a>
     </h1>
     please send feedback to @star_goldfish on twitter :)
+    THIS IS SCRAPPY VER DONT USE THIS USE THE ONE ON THE WIKI
     <p>
         ******Use MS Word for italics first please****** Press Ctrl+I then Search: (<*>) Replace: ''\1'' <br>
         This will not get you a finished wiki page! Please don't forget to add footnotes, CGs, location changes and so on.<br>
