@@ -14,7 +14,7 @@ def nextrow(rule, row):
 #print(returnstate(7, '111'))
 def printrows(rule, row, length):
     for i in range(length):
-        print(row)
+        print(row.replace("0", " ").replace("1", "█"))
         row = nextrow(rule, row)
 
-printrows(105, '000000000010000000000', 10)
+printrows(30, '0000110000000000000010000000000000000000000000000000000000', 30)
