@@ -12,30 +12,9 @@
  
 <!--
  
-console.log("v2")
+console.log("v3")
 
-var gtnOnly = new Array(
-    "Cytherea the First",
-    "Colum Asht",
-    "Silas Octakiseron",
-    "Protesilaus Ebdoma",
-    "Dulcinea Septimus",
-    "Camilla Hect",
-    "Palamedes Sextus",
-    "Magnus Quinn",
-    "Abigail Pent",
-    "Jeannemary Chatur",
-    "Isaac Tettares",
-    "Naberius Tern",
-    "Ianthe Tridentarius",
-    "Coronabeth Tridentarius",
-    "Marta Dyas",
-    "Judith Deuteros",
-    "Gideon Nav",
-    "Harrowhark Nonagesimus"
-);
-
-var allChars = new Array(
+var namMember = new Array(
     "Commander Wake",
     "Pyrrha Dve",
     "Gideon the First",
@@ -63,24 +42,6 @@ var allChars = new Array(
     "Harrowhark Nonagesimus"
 );
 
-var namMember = allChars;
-
-
-function setChars() {
-
-    // Get the checkbox
-    var noHarrowBox = document.getElementById("noharrow");
-
-
-    if (noHarrowBox.checked) {
-        namMember = gtnOnly;
-    } else {
-        namMember = allChars;
-    }
-
-  initList();
-  
-}
 
 //*********************************************************
 
@@ -657,8 +618,7 @@ font-family: 'Times New Roman', erif;
  
 Pick who you like better in each battle to get a ranking of your favorite characters from the books.<br />
 Note: hitting 'no opinion' or 'I like both' frequently will negatively affect your results.<br />
-  <input type="checkbox" id="noharrow" name="noharrow" onclick="setChars()">
-<label for="noharrow"> Turn off Harrow the Ninth spoilers (don't do this halfway through!)</label><br><br /><br /></center>
+<a href="goldgust.github.io/gtnsorter.html">Spoiler free (Gideon the Ninth cast only) sorter</a><br><br /><br /></center>
  
  
  
