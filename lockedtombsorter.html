@@ -63,18 +63,22 @@ var allChars = new Array(
 "Commander Wake"
 );  
 
-// Get the checkbox
-var noHarrowBox = document.getElementById("noharrow");
+  var namMember = allChars;
 
-var namMember;
   
-if(noHarrowBox.checked){
-  namMember = gtnOnly;
-} else {
-  namMember = allChars;
+function setChars() {
+
+  // Get the checkbox
+  var noHarrowBox = document.getElementById("noharrow");
+
+
+  if(noHarrowBox.checked){
+    namMember = gtnOnly;
+  } else {
+    namMember = allChars;
+  }
+ 
 }
- 
- 
  
 //*********************************************************
  
@@ -650,7 +654,7 @@ font-family: 'Times New Roman', erif;
  
 Pick who you like better in each battle to get a ranking of your favorite characters from the books.<br />
 Note: hitting 'no opinion' or 'I like both' frequently will negatively affect your results.<br />
-  <input type="checkbox" id="noharrow" name="noharrow" value="No Harrow">
+  <input type="checkbox" id="noharrow" name="noharrow" onclick="setChars()">
 <label for="vehicle1"> Turn off Harrow the Ninth characters (lets you avoid spoilers)</label><br><br /><br /></center>
  
  
@@ -714,7 +718,7 @@ showImage();
  
 </script>
 <p class="other">
-<center><small><br /><br />pleasemessage goldgust on twitter about problems<br />used with permission.<br /><br/><a href="http://biasorter.tumblr.com/">created by biasorter</a>.
+<center><small><br /><br />message goldgust on twitter about problems<br />used with permission.<br /><br/><a href="http://biasorter.tumblr.com/">created by biasorter</a>.
 </small></center></small>
 </p>
 
