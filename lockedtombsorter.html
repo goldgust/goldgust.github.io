@@ -63,21 +63,16 @@ var allChars = new Array(
 "Commander Wake"
 );  
 
+// Get the checkbox
+var noHarrowBox = document.getElementByName("noharrow");
 
-var namMember = new Array(
- 
-"option 1",
- 
-"option 2",
- 
-"option 3",
- 
-"option 4",
- 
-"option 5"
- 
- 
-);
+var namMember;
+  
+if(noHarrowBox.checked){
+  namMember = gtnOnly;
+} else {
+  namMember = allChars;
+}
  
  
  
@@ -653,7 +648,7 @@ font-family: 'Times New Roman', erif;
 <center><br /><br />
 <b>LOCKED TOMB CHARACTER SORTER</b><br /><br>
  
-Pick who you like better in each battle to get a ranking of your<br />favorite characters from the books.<br />
+Pick who you like better in each battle to get a ranking of your favorite characters from the books.<br />
 Note: hitting 'no opinion' or 'I like both' frequently will negatively affect your results.<br />
   <input type="checkbox" id="" name="noharrow" value="No Harrow">
 <label for="vehicle1"> Turn off Harrow the Ninth characters (lets you avoid spoilers)</label><br><br /><br /></center>
